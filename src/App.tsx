@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   ShieldCheck, 
   Wrench, 
@@ -15,7 +15,7 @@ import {
   X,
   ChevronRight
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, animate, useInView } from 'motion/react';
 
 const COLORS = {
   primary: '#E61A2D', // Strong Red
@@ -117,6 +117,27 @@ function NoiseOverlay() {
   );
 }
 
+function AnimatedCounter({ value, decimals = 0 }: { value: number; decimals?: number; }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (inView && ref.current) {
+      animate(0, value, {
+        duration: 2,
+        ease: "easeOut",
+        onUpdate: (latest) => {
+          if (ref.current) {
+            ref.current.textContent = latest.toFixed(decimals);
+          }
+        }
+      });
+    }
+  }, [inView, value, decimals]);
+
+  return <span ref={ref}>0</span>;
+}
+
 // Hero Section (Editorial / Magazine Hero style)
 function Hero({ view }: { view: ViewType }) {
   const isCommercial = view === 'commercial';
@@ -196,21 +217,21 @@ function Hero({ view }: { view: ViewType }) {
           className="mt-28 grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 border-t border-white/5 pt-12"
         >
           <div>
-            <div className="text-3xl md:text-4xl font-light tracking-tighter text-white mb-2">30<span className="text-red-500">+</span></div>
+            <div className="text-3xl md:text-4xl font-bold tracking-tighter text-white mb-2"><AnimatedCounter value={30} /><span className="text-red-500">+</span></div>
             <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-[0.15em] font-semibold">Years Experience</div>
           </div>
           <div>
-            <div className="text-3xl md:text-4xl font-light tracking-tighter text-white mb-2">0<span className="text-red-500">%</span></div>
+            <div className="text-3xl md:text-4xl font-bold tracking-tighter text-white mb-2"><AnimatedCounter value={0} /><span className="text-red-500">%</span></div>
             <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-[0.15em] font-semibold">APR Financing</div>
           </div>
           <div>
-            <div className="flex items-center gap-2 text-3xl md:text-4xl font-light tracking-tighter text-white mb-2">
-              4.9 <Star size={20} className="fill-red-500 text-red-500" />
+            <div className="flex items-center gap-2 text-3xl md:text-4xl font-bold tracking-tighter text-white mb-2">
+              <AnimatedCounter value={4.9} decimals={1} /> <Star size={20} className="fill-red-500 text-red-500" />
             </div>
             <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-[0.15em] font-semibold">Customer Rating</div>
           </div>
           <div>
-            <div className="text-3xl md:text-4xl font-light tracking-tighter text-white mb-2">24<span className="text-red-500">/</span>7</div>
+            <div className="text-3xl md:text-4xl font-bold tracking-tighter text-white mb-2"><AnimatedCounter value={24} /><span className="text-red-500">/</span>7</div>
             <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-[0.15em] font-semibold">Emergency Support</div>
           </div>
         </motion.div>
@@ -370,7 +391,7 @@ function Process() {
               transition={{ delay: idx * 0.1 }}
               className="relative"
             >
-              <div className="text-[80px] leading-none font-bold text-white/5 mb-4 font-serif absolute -top-8 -left-4">
+              <div className="text-[80px] leading-none font-bold text-white/5 mb-4 font-sans absolute -top-8 -left-4">
                 0{idx + 1}
               </div>
               <div className="relative z-10 pl-4 border-l border-red-600/30">
