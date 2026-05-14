@@ -123,8 +123,8 @@ function Hero({ view }: { view: ViewType }) {
   const isCommercial = view === 'commercial';
   const heading = isCommercial ? "COMMERCIAL" : "RESIDENTIAL";
   const image = isCommercial 
-    ? "https://images.unsplash.com/photo-1541888086925-920f0fd5b651?auto=format&fit=crop&q=100&w=2940"
-    : "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=100&w=2940";
+    ? "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=100&w=2940"
+    : "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=100&w=2940";
 
   return (
     <section className="relative min-h-[90vh] md:min-h-screen flex items-center bg-[#010204] overflow-hidden pt-20">
@@ -273,19 +273,19 @@ function Services() {
       title: "Residential Roofing",
       desc: "Complete roof replacements, new installations, and minor repairs for homeowners using premium architectural shingles.",
       icon: Home,
-      image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800"
+      image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&q=80&w=800"
     },
     {
       title: "Commercial Roofing",
       desc: "Flat roofs, TPO, EPDM, and metal roofing solutions designed for longevity and minimal business disruption.",
       icon: Building2,
-      image: "https://images.unsplash.com/photo-1541888086925-920f0fd5b651?auto=format&fit=crop&q=80&w=800"
+      image: "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=800"
     },
     {
       title: "Storm Damage & Repair",
       desc: "Emergency tarping, detailed inspections, and complete restoration services for wind, hail, and tree damage.",
       icon: CloudLightning,
-      image: "https://images.unsplash.com/photo-1527018263351-404ced6ee73e?auto=format&fit=crop&q=80&w=800"
+      image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800"
     }
   ];
 
@@ -521,7 +521,7 @@ function Gateway({ onSelect }: { onSelect: (type: ViewType) => void }) {
             transition={{ duration: 40, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=100&w=2940" 
+              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=100&w=2940" 
               alt="Residential Roofing" 
               className="w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] opacity-40 group-hover:opacity-70 group-hover:scale-105"
             />
@@ -556,7 +556,7 @@ function Gateway({ onSelect }: { onSelect: (type: ViewType) => void }) {
             transition={{ duration: 40, repeat: Infinity, repeatType: "reverse", ease: "linear", delay: 1 }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1541888086925-920f0fd5b651?auto=format&fit=crop&q=100&w=2940" 
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=100&w=2940" 
               alt="Commercial Roofing" 
               className="w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] opacity-40 group-hover:opacity-70 group-hover:scale-105"
             />
