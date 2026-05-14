@@ -41,12 +41,11 @@ function Navigation({ onBack }: { onBack?: () => void }) {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         <div className="flex items-center gap-3 cursor-pointer group" onClick={onBack}>
-          <div className={`w-8 h-8 flex items-center justify-center rounded-sm transition-colors ${isScrolled ? 'bg-red-600 text-white group-hover:bg-gray-900' : 'bg-white text-red-600 group-hover:bg-gray-200'}`}>
-            <Home size={20} className="stroke-[2.5]" />
-          </div>
-          <span className={`font-bold text-xl tracking-tight transition-colors ${isScrolled ? 'text-gray-900 group-hover:text-red-600' : 'text-white group-hover:text-red-400'}`}>
-            THE USA ROOFER
-          </span>
+          <img 
+            src="https://www.theusaroofer.com/images/logo.png" 
+            alt="The USA Roofer" 
+            className="h-10 md:h-12 object-contain transition-transform group-hover:scale-105"
+          />
         </div>
         
         <div className={`hidden md:flex gap-8 items-center text-sm font-medium ${isScrolled ? 'text-gray-600' : 'text-white/90'}`}>
@@ -123,8 +122,8 @@ function Hero({ view }: { view: ViewType }) {
   const isCommercial = view === 'commercial';
   const heading = isCommercial ? "COMMERCIAL" : "RESIDENTIAL";
   const image = isCommercial 
-    ? "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=100&w=2940"
-    : "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=100&w=2940";
+    ? "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=100&w=3840"
+    : "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=100&w=3840";
 
   return (
     <section className="relative min-h-[90vh] md:min-h-screen flex items-center bg-[#010204] overflow-hidden pt-20">
@@ -137,7 +136,7 @@ function Hero({ view }: { view: ViewType }) {
           <img 
             src={image} 
             alt="Modern roof" 
-            className="w-full h-full object-cover opacity-50 mix-blend-luminosity"
+            className="w-full h-full object-cover opacity-60"
           />
         </motion.div>
         {/* Core Gradients */}
@@ -433,13 +432,12 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-6 text-white">
-              <div className="w-8 h-8 flex items-center justify-center rounded-sm bg-red-600 text-white">
-                <Home size={20} className="stroke-[2.5]" />
-              </div>
-              <span className="font-bold text-xl tracking-tight">
-                THE USA ROOFER
-              </span>
+            <div className="flex items-center gap-2 mb-6">
+              <img 
+                src="https://www.theusaroofer.com/images/logo.png" 
+                alt="The USA Roofer" 
+                className="h-12 object-contain"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Manalapan NJ roofing contractor since 1993. America's best choice for roof replacement, repair, and new installations across Monmouth County.
@@ -500,12 +498,11 @@ function Gateway({ onSelect }: { onSelect: (type: ViewType) => void }) {
       {/* Absolute Logo */}
       <div className="absolute top-0 left-0 w-full z-50 p-6 md:p-8 flex justify-between items-center pointer-events-none">
         <div className="flex items-center gap-4">
-          <div className="w-10 h-10 flex items-center justify-center bg-red-600 text-white shadow-2xl pointer-events-auto">
-            <Home size={22} className="stroke-[2.5]" />
-          </div>
-          <span className="font-bold text-lg md:text-xl tracking-[0.2em] text-white pointer-events-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-            THE USA ROOFER
-          </span>
+          <img 
+            src="https://www.theusaroofer.com/images/logo.png" 
+            alt="The USA Roofer" 
+            className="h-12 md:h-16 object-contain pointer-events-auto drop-shadow-2xl hover:scale-105 transition-transform"
+          />
         </div>
       </div>
 
@@ -521,9 +518,9 @@ function Gateway({ onSelect }: { onSelect: (type: ViewType) => void }) {
             transition={{ duration: 40, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=100&w=2940" 
+              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=100&w=3840" 
               alt="Residential Roofing" 
-              className="w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] opacity-40 group-hover:opacity-70 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] opacity-50 group-hover:opacity-80 group-hover:scale-105"
             />
           </motion.div>
         </div>
@@ -556,9 +553,9 @@ function Gateway({ onSelect }: { onSelect: (type: ViewType) => void }) {
             transition={{ duration: 40, repeat: Infinity, repeatType: "reverse", ease: "linear", delay: 1 }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=100&w=2940" 
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=100&w=3840" 
               alt="Commercial Roofing" 
-              className="w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] opacity-40 group-hover:opacity-70 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] opacity-50 group-hover:opacity-80 group-hover:scale-105"
             />
           </motion.div>
         </div>
